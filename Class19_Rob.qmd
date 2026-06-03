@@ -1,0 +1,38 @@
+---
+title: "Class19_Rob"
+author: "Rob Schlom"
+format: pdf
+editor: visual
+---
+
+I'm teammate 1, so I'll be in charge of functions 1&4
+
+Testing function 1 (upload_fasta())
+```{r}
+upload_fasta("testfasta.txt")
+```
+
+```{r}
+upload_fasta("testfasta.txt")$A
+```
+
+Testing function 4 (splitpeptides_to_masses())
+
+```{r}
+aa <- list(A=list(c("L","V","K"),
+c("L","H","H","I","I","F","E","S","M","L","K"), c("D","M","Q","R")),
+B=list(c("A","D","E","F","Q","G","S","M","Q","K"),
+c("I","E","A","C","W","Q","S","Y","D","V","Q","F")),
+C=list(c("M","I","N","E","P","F","S","W","R"),
+c("L","E","F","H","L","S","E","R"), c("Y","D","E","I","M")))
+```
+
+```{r}
+splitpeptides_to_masses(aa)
+```
+
+```{r}
+splitpeptides_to_masses(aa)$A
+```
+
+
