@@ -27,6 +27,7 @@ splitpeptides_to_masses <- function(aa) {
 split_peptides <- function(peptides) {
   
   # Opening stringr for simple string manipulation
+  #lool
   library(stringr)
   
   #Splitting peptides into individual amino acids using str_split; generates a list of lists of amino acids for each peptide
