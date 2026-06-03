@@ -31,3 +31,7 @@ trypsinize <- function(proteins) {
   lapply(proteins, str_split_1, pattern="(?<=R|K)")
 }
 
+proteins <- list(A="LVKLHHIIFESMLKDMQRRHRVW", B="ADEFQGSMQKIEACWQSYDVQF",
+                 C="MINEPFSWRLEFHLSERKYDEIM")
+
+proteins
