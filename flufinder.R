@@ -21,3 +21,16 @@ splitpeptides_to_masses <- function(aa) {
   # Unlisting the inner lists to generate a list of vectors of masses for each protein
   lapply(peptide_masses, unlist)
 }
+
+
+#function 3
+split_peptides <- function(peptides) {
+  
+  # Opening stringr for simple string manipulation
+  library(stringr)
+  
+  #Splitting peptides into individual amino acids using str_split; generates a list of lists of amino acids for each peptide
+  lapply(peptides, str_split, pattern="")
+  
+}
+
