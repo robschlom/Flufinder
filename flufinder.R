@@ -22,6 +22,7 @@ splitpeptides_to_masses <- function(aa) {
   lapply(peptide_masses, unlist)
 }
 
+#function 2
 trypsinize <- function(proteins) {
   
   #Opening stringr for simple string manipulation
@@ -35,3 +36,48 @@ proteins <- list(A="LVKLHHIIFESMLKDMQRRHRVW", B="ADEFQGSMQKIEACWQSYDVQF",
                  C="MINEPFSWRLEFHLSERKYDEIM")
 
 proteins
+
+
+#function 3
+split_peptides <- function(peptides) {
+  
+  # Opening stringr for simple string manipulation
+  #lool
+  library(stringr)
+  
+  #Splitting peptides into individual amino acids using str_split; generates a list of lists of amino acids for each peptide
+  lapply(peptides, str_split, pattern="")
+  
+}
+
+
+#function 6
+ggbarplot <- function(peptide_counts_table) {
+  
+  library(ggplot2)
+  # Generating a barplot from the peptide counts dataframe
+  ggplot(peptide_counts_table) +
+    aes(rownames(peptide_counts_table), peptide_counts) +
+    geom_col(fill="blue", width=0.5) +
+    theme_bw() +
+    labs(x="Flu Strain", y="Peptide Counts")
+  
+}
+
+
+#function 5
+count_matching_masses <- function(protein_masses, sample) {
+  
+  #Virus masses is a list of masses for each protein so we use sapply toiterate over the list; sum (of TRUEs) is used to count the number oftimes a mass in the sample is found (%in%) among the masses of each ofthe proteins (virus_masses); note that masses are converted into strings(as.character) because %in% is not very reliable with numbers
+  df <- as.data.frame(sapply(protein_masses, function (x)
+    sum(as.character(sample) %in% as.character(x))))
+  
+  # Adding peptide_counts as the column name of the counts column
+  names(df) <- "peptide_counts"
+  
+  return(df)
+}
+
+masses_list <- list(A=c(340.246, 1348.728, 530.225), B=c(1121.476,
+                                                         1469.624), C=c(1160.540, 1011.511, 651.255))
+sample <- c(340.246, 530.225, 1348.728)
